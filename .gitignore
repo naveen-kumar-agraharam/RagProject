@@ -1,0 +1,72 @@
+# Intellica - Intelligent Document Assistant
+
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+*.so
+.venv/
+venv/
+**/venv/
+env/
+ENV/
+
+# ─── Environment Variables (NEVER COMMIT) ───────────────────────────────────────
+.env
+*.env
+**/.env
+.env.local
+.env.production
+.env.*.local
+backend/.env
+frontend/.env
+
+# ─── Backend Data & Uploads ───────────────────────────────────────────────────
+backend/uploads/
+backend/chroma_db/
+uploads/
+**/uploads/
+chroma_db/
+**/chroma_db/
+*.sqlite3
+backend/*.log
+
+# ─── Node.js / Frontend ───────────────────────────────────────────────────────
+node_modules/
+**/node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+frontend/.vite/
+.vite/
+
+# ─── IDE & OS ─────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Testing ──────────────────────────────────────────────────────────────────
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+htmlcov/
+*.test.js
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+.docker/
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/

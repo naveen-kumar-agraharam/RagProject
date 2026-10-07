@@ -1,0 +1,45 @@
+services:
+  # ─── Intellica Backend (FastAPI + RAG Pipeline) ───────────────────────────
+  - type: web
+    name: intellica-backend
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: EMBEDDING_MODEL
+        value: models/gemini-embedding-001
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: CHROMA_PERSIST_DIRECTORY
+        value: ./chroma_db
+      - key: UPLOAD_DIRECTORY
+        value: ./uploads
+
+  # ─── Intellica Frontend (React + Vite SaaS UI) ───────────────────────────
+  - type: web
+    name: intellica-frontend
+    env: static
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: intellica-backend
+          type: web
+          property: url
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
