@@ -33,7 +33,7 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        value: https://intellica-backend.onrender.com
+        value: https://intellica-backend-dlqr.onrender.com
     routes:
       - type: rewrite
         source: /*

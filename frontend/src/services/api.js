@@ -5,7 +5,11 @@
 
 import axios from 'axios'
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD
+    ? 'https://intellica-backend-dlqr.onrender.com'
+    : 'http://localhost:8000')
 
 // ─── Axios Instance ──────────────────────────────────────────────────────────
 
