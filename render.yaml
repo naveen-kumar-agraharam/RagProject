@@ -2,7 +2,7 @@ services:
   # ─── Intellica Backend (FastAPI + RAG Pipeline) ───────────────────────────
   - type: web
     name: intellica-backend
-    env: python
+    runtime: python
     region: oregon
     plan: free
     rootDir: backend
@@ -27,18 +27,13 @@ services:
   # ─── Intellica Frontend (React + Vite SaaS UI) ───────────────────────────
   - type: web
     name: intellica-frontend
-    env: static
-    region: oregon
-    plan: free
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          name: intellica-backend
-          type: web
-          property: url
+        value: https://intellica-backend.onrender.com
     routes:
       - type: rewrite
         source: /*
