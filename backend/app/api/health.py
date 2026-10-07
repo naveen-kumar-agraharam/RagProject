@@ -14,8 +14,9 @@ router = APIRouter(prefix="/api", tags=["Health"])
 settings = get_settings()
 
 
-@router.get(
+@router.api_route(
     "/health",
+    methods=["GET", "HEAD"],
     response_model=HealthResponse,
     summary="System health check",
 )

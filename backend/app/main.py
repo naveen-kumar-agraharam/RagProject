@@ -125,7 +125,7 @@ app.include_router(chat.router)
 
 # ─── Root Endpoint ────────────────────────────────────────────────────────────
 
-@app.get("/", tags=["Root"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["Root"])
 async def root():
     """API root - returns basic info."""
     return {
