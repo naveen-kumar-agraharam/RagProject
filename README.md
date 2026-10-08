@@ -1,4 +1,4 @@
-# 🎓 CollegeGPT – AI College Document Assistant
+# 🎓 Intellica – AI College Document Assistant
 
 > **Ask questions from your college documents using AI.**
 > Upload syllabus, placement rules, academic regulations, timetables, and more — get instant, accurate, sourced answers powered by Google Gemini + RAG.
